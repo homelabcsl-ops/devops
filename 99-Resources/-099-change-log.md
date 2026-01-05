@@ -88,7 +88,6 @@ date: "2025-12-31"
     * **State:** Executed `:Lazy clean` to purge unused binaries.
 
 ---
-- [ ] **Next Step:** Configure Git workflow to version control `dks-skills.lua` and backup the DKS configuration.
 
 ## [2026-01-04]
 ### Added
@@ -99,3 +98,12 @@ date: "2025-12-31"
 ### Fixed
 - **Buffer Lock Crash:** Resolved `Buffer is not modifiable` error by separating file creation (I/O) from file editing (UI).
 
+## [2026-01-05]
+### Configured
+- **Documentation Access:** Mapped `<leader>H` to `Telescope help_tags` in `~/.config/nvim/lua/config/keymaps.lua`.
+    - **Objective:** Restore instant access to system manual/help docs after `<leader>sh` was repurposed.
+    - **Benefit:** Ensures "frictionless" lookup of plugin documentation and Vim help tags using a capital `H` to avoid collision with standard navigation keys.
+    - **Verification:** Confirmed via `:verbose map <leader>H`.
+
+---
+- [ ] **Next Step:** Configure Git workflow to version control `dks-skills.lua` and backup the DKS configuration.

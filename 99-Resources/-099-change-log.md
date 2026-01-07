@@ -105,5 +105,15 @@ date: "2025-12-31"
     - **Benefit:** Ensures "frictionless" lookup of plugin documentation and Vim help tags using a capital `H` to avoid collision with standard navigation keys.
     - **Verification:** Confirmed via `:verbose map <leader>H`.
 
+## [2026-01-07]
+### Fixed
+- **Knowledge System (Image Workflow):** Resolved crash in `<leader>oi` toggle by implementing explicit `enable/disable` logic for `image.nvim` (replaced non-existent `toggle` method).
+- **Asset Management:** Fixed image save path behavior. `img-clip` now strictly targets the root `Assets/` directory (`relative_to_current_file = false`) to match the Vault structure, preventing the creation of nested asset folders.
+
+### Changed
+- **Image Pasting (`<leader>op`):** - Switched paste template to Standard Markdown `![$FILE_NAME]($FILE_PATH)` to ensure instant rendering by `image.nvim`.
+    - Enabled `prompt_for_file_name = true` to allow frictionless naming of screenshots upon capture.
+- **Keybindings:** Removed conflicting `<leader>oi` mapping from `obsidian.nvim` to allow `image.nvim` to handle visibility toggling.
+
 ---
-- [ ] **Next Step:** Configure Git workflow to version control `dks-skills.lua` and backup the DKS configuration.
+- [ ] **Next Step:** Begin Phase 1: DevOps Professional Training (Module 1).

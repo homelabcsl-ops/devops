@@ -32,7 +32,7 @@ tags: []
 ### 3. Automation Scripts
 **File:** `~/bin/mission-control.sh`
 * **Action:** Idempotent Startup
-    * **Logic:** Script checks for "DKS-Main" session.
+    * **Logic:** Script checks for "DKS-Main" session.2
         * **If missing:** Builds 3-window layout.
         * **If exists:** Attaches immediately.
 * **Layout Definition:**
@@ -119,4 +119,12 @@ tags: []
 [2026-01-14] FORCE SYNC: Overwriting remote GitHub repository with local DevOps vault to establish local version as source of truth.
 
 
+# Lab Environment Setup
+**Date:** 2026-01-14
+**Type:** Lima VM (Ubuntu 24.04)
+**Resources:** 2 vCPU, 4GB RAM
 
+## Initial Configuration
+- Created `dks-lab.yaml`
+- Established "Breach" alias in zshrc
+- Confirmed `apt` updates and `htop` installation.

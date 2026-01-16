@@ -128,3 +128,6 @@ tags: []
 - Created `dks-lab.yaml`
 - Established "Breach" alias in zshrc
 - Confirmed `apt` updates and `htop` installation.
+
+Date,Component,Type,Description
+2026-01-16,Automation,fix,Updated startup-sequence.sh to explicitly launch Finder (open ~) into Workspace 4 on boot.

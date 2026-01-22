@@ -134,4 +134,32 @@ Date,Component,Type,Description
 
 
 
-testing 
+# Change Log: 2026-01-22
+
+### Summary
+Established **Level 1 Frictionless Access** between iPad Pro (Client) and Mac Mini (Server). Transitioned from password-based authentication to SSH Key (Secure Enclave) authentication. Resolved macOS-specific permission and attribute blockers.
+
+### 1. Network & Connectivity (Tailscale)
+* **Correction:** Resolved "Operation Timed Out" errors by authenticating iPad Tailscale client with the correct `homelabcsl-ops` GitHub identity.
+* **Verification:** Confirmed visibility of `yarins-mac-mini` (100.103.38.128) in the iPad device list.
+
+### 2. Client Configuration (iPad - Blink Shell)
+* **Key Generation:** Created new ECDSA key pair named `ipad-pro` stored in the **Secure Enclave** for hardware-level security.
+* **Host Configuration:** Created permanent Host Alias to remove manual typing.
+    * **Alias:** `mini`
+    * **Hostname:** `100.103.38.128`
+    * **User:** `homelab`
+    * **Identity:** Linked to `ipad-pro` key.
+
+### 3. Server Configuration (Mac Mini)
+* **Directory Setup:** Created `~/.ssh` directory and `~/.ssh/authorized_keys` file.
+* **Key Installation:** Manually appended the `ipad-pro` public key to `authorized_keys`.
+* **Security Hardening (Permissions):**
+    * Set `.ssh` directory to **700** (`drwx------`).
+    * Set `authorized_keys` file to **600** (`-rw-------`).
+    * Secured Home Directory (`~`) to **755** (`drwxr-xr-x`) to satisfy SSH strict mode requirements.
+* **Attribute Fix (Critical):** Ran `xattr -c ~/.ssh/authorized_keys` to remove the macOS "Quarantine" attribute (`@` flag) that was blocking the key from being read.
+
+### Status
+* **Current State:** Fully functional password-less login via `ssh mini`.
+* **Next Steps:** Implementation of **Mosh** (Mobile Shell) and **Tmux** for session persistence. 

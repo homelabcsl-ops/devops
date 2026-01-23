@@ -162,4 +162,48 @@ Established **Level 1 Frictionless Access** between iPad Pro (Client) and Mac Mi
 
 ### Status
 * **Current State:** Fully functional password-less login via `ssh mini`.
-* **Next Steps:** Implementation of **Mosh** (Mobile Shell) and **Tmux** for session persistence. 
+* **Next Steps:** Implementation of **Mosh** (Mobile Shell) and **Tmux** for session persistence.
+
+# Change Log: 2026-01-23
+
+### Summary
+Achieved **Level 2: Indestructibility** by implementing persistent session management (Tmux) and resilient networking (Mosh). Created a custom launcher script to resolve pathing conflicts and automate session attachment.
+
+### 1. Server Software Installation (Mac Mini)
+* **Action:** Installed `mosh` and `tmux` via Homebrew.
+* **Verification:** Confirmed installation paths:
+    * Mosh Server: `/opt/homebrew/bin/mosh-server`
+    * Tmux: `/opt/homebrew/bin/tmux`
+
+### 2. Client Configuration (iPad - Blink Shell)
+* **Protocol Switch:** Transitioned Host `mini` from standard SSH (TCP) to Mosh (UDP) for network resilience.
+* **Path Configuration:** Manually defined the Mosh Server path (`/opt/homebrew/bin/mosh-server`) in Blink settings.
+* **Automation:** Configured Host Command to execute `~/connect` upon login.
+
+### 3. Session Automation (The "Launcher")
+* **Conflict Resolution:** Created a server-side script `~/connect` to handle the specific environment pathing for Tmux, bypassing Blink's limited command parser.
+* **Script Logic:** `/opt/homebrew/bin/tmux new -A -s main` (Creates session 'main' if missing, or attaches if existing).
+* **Permissions:** Made executable via `chmod +x ~/connect`.
+
+### Status
+* **Current State:** Frictionless, persistent connectivity established.
+* **Next Steps:** Integration of LazyVim and Obsidian into the remote workflow.
+
+# Lima: DKS Lab Configuration
+
+## 1. Instance Details
+* **Name:** `dks-lab`
+* **OS:** Linux (Ubuntu/Debian based)
+* **Role:** Isolated DevOps Sandbox
+
+## 2. Configuration Changes (2026-01-23)
+* **Recovery:** Fixed "Broken" state (`vz driver running but host agent is not`) by force-stopping and restarting.
+* **Mounts:** Changed file system mount from Read-Only to **Writable**.
+    * *Config:* `mounts: - location: "~" writable: true`
+* **Tooling:** Installed `neovim` inside the Linux environment (`sudo apt install neovim`).
+
+## 3. Usage Commands
+* **Start Lab:** `limactl start dks-lab`
+* **Enter Shell:** `limactl shell dks-lab`
+* **Access Dotfiles:** `cd /Users/$(whoami)/dotfiles` (Maps to Mac host)
+* **Edit Config:** `limactl edit dks-lab` (Must stop instance first)

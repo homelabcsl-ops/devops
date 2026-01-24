@@ -217,3 +217,8 @@ Achieved **Level 2: Indestructibility** by implementing persistent session manag
 ### Changed
 - `serve-ipad`: Updated to spawn a dedicated child window for the server process.
 - `aerospace.toml`: Re-enabled routing for 'IPAD_SERVER' to Workspace 5 (server only).
+
+## [Unreleased] - 2026-01-24
+### Added
+- `serve-ipad`: Zsh automation to spawn a tagged server window for iPad connectivity.
+- `aerospace.toml`: Configured rule to route 'IPAD_SERVER' windows to Workspace 5 automatically.

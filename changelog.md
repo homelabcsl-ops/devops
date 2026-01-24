@@ -212,3 +212,8 @@ Achieved **Level 2: Indestructibility** by implementing persistent session manag
 ### Added
 - `serve-ipad`: Zsh function to auto-detect LAN IP and serve current directory.
 - `aerospace.toml`: Configured rule to auto-route 'IPAD_SERVER' windows to Workspace 5.
+
+## [Unreleased] - 2026-01-24
+### Changed
+- `serve-ipad`: Updated to spawn a dedicated child window for the server process.
+- `aerospace.toml`: Re-enabled routing for 'IPAD_SERVER' to Workspace 5 (server only).

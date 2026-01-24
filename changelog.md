@@ -207,3 +207,8 @@ Achieved **Level 2: Indestructibility** by implementing persistent session manag
 * **Enter Shell:** `limactl shell dks-lab`
 * **Access Dotfiles:** `cd /Users/$(whoami)/dotfiles` (Maps to Mac host)
 * **Edit Config:** `limactl edit dks-lab` (Must stop instance first)
+
+## [Unreleased] - 2026-01-24
+### Added
+- `serve-ipad`: Zsh function to auto-detect LAN IP and serve current directory.
+- `aerospace.toml`: Configured rule to auto-route 'IPAD_SERVER' windows to Workspace 5.

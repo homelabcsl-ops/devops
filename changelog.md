@@ -222,3 +222,11 @@ Achieved **Level 2: Indestructibility** by implementing persistent session manag
 ### Added
 - `serve-ipad`: Zsh automation to spawn a tagged server window for iPad connectivity.
 - `aerospace.toml`: Configured rule to route 'IPAD_SERVER' windows to Workspace 5 automatically.
+
+## [Unreleased] - 2026-01-24
+### Changed
+- `serve-ipad`: Upgraded engine to `live-server` for instant hot-reloading.
+- `serve-ipad`: Added auto-kill logic to clear Port 3000 on startup (Fixes collision error).
+- `BRIDGE_MANUAL.md`: Created system documentation for the network bridge workflow.
+
+

@@ -229,4 +229,20 @@ Achieved **Level 2: Indestructibility** by implementing persistent session manag
 - `serve-ipad`: Added auto-kill logic to clear Port 3000 on startup (Fixes collision error).
 - `BRIDGE_MANUAL.md`: Created system documentation for the network bridge workflow.
 
+## [2026-01-28] - System Architecture & Workflow Hardening
+### Added
+- **Multi-Vault Support:** Implemented Workspace Overrides in `knowledge.lua` to support distinct folder structures for "Personal" and "DevOps" vaults.
+- **Strict Automation:** Updated `<leader>oj` logic to enforce Strict Johnny Decimal numbering. Automation now derives IDs solely from folder prefixes (e.g., `99-Resources` -> `99.xx`), ignoring un-numbered folders.
+- **Conflict Resolution:** Established unique ID namespaces for System folders to prevent collision:
+    - `91-Legacy` (Archive)
+    - `99-Templates` (Resources)
+    - `02-Templates` (Personal Admin)
+
+### Changed
+- **Daily Note Routing:** - Personal: `00-Inbox/01-Daily`
+    - DevOps: `00-Inbox/02-Daily`
+- **Template Routing:**
+    - Personal: `01-Admin/02-Templates`
+    - DevOps: `99-Resources/99-Templates`
+- **Fix:** Resolved path mismatch causing `<leader>od` (Daily Note) failures.
 

@@ -246,3 +246,21 @@ Achieved **Level 2: Indestructibility** by implementing persistent session manag
     - DevOps: `99-Resources/99-Templates`
 - **Fix:** Resolved path mismatch causing `<leader>od` (Daily Note) failures.
 
+## [2026-01-29] - System Architecture & Workflow Hardening
+### Added
+- **Symmetrical Vault Structure:** Aligned "Personal" and "DevOps" vaults to identical folder schemas to ensure consistent automation behavior.
+- **Strict Automation:** Confirmed `<leader>oj` logic now enforces strict Johnny Decimal numbering, ignoring un-numbered folders.
+- **Conflict Resolution:** Established unique ID namespaces for System folders to prevent collision:
+    - `01-Assets` (Inbox)
+    - `02-Daily` (Inbox)
+    - `91-Legacy` (Archive)
+    - `99-Templates` (Resources)
+
+### Changed
+- **Folder Renames (Personal Vault):**
+    - Moved `Assets` (root) -> `00-Inbox/01-Assets`.
+    - Renamed `Daily` -> `00-Inbox/02-Daily`.
+    - Moved `Templates` -> `99-Resources/99-Templates`.
+- **System Logic:**
+    - Daily Notes now universally claim ID range `02.xx`.
+    - Templates now universally claim ID range `99.xx`.

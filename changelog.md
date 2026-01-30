@@ -264,3 +264,11 @@ Achieved **Level 2: Indestructibility** by implementing persistent session manag
 - **System Logic:**
     - Daily Notes now universally claim ID range `02.xx`.
     - Templates now universally claim ID range `99.xx`.
+
+    ## [2026-01-30] Fix: Input Focus Delay for Skill Logging
+- **Authorized by:** User
+- **File:** `dks-skills.lua`
+- **Changes:**
+  - ADDED: `vim.cmd("stopinsert")` to force Normal mode before the prompt appears.
+  - ADDED: `vim.defer_fn(..., 100)` to introduce a 100ms delay before triggering the input box.
+- **Reason:** Fixed a bug where the terminal process held onto keyboard focus, preventing the user from typing into the metrics prompt.
